@@ -20,11 +20,7 @@ aut = fb.auth()
 
 # Login / Logout
 def home(request):
-    if request.session['uid']:
-        return redirect('dashboard')
-    else:
-        request.session['uid'] = None
-        return render(request, 'home.html')
+    return render(request, "home.html")
 
 
 # Logout required
