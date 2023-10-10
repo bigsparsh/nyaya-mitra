@@ -12,12 +12,11 @@
     <div class="bg-white p-8 rounded shadow-md w-96">
         <h2 class="text-2xl font-semibold mb-6">Registration Form</h2>
 
-
-        <h1 class="text-2xl font-semibold mb-6">Login</h1>
-
         {% for msg in messages %}
 
         <h1 class="text-red-500 pb-5"> {{ msg }} </h1>
+
+        {% endfor %}
 
         <form action="#" method="POST">
             {% csrf_token %}

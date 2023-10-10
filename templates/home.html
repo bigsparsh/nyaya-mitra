@@ -41,10 +41,26 @@
 <div class="bg-gray-100 py-12">
     <div class="container mx-auto flex items-center justify-center">
         <div class="bg-white p-8 rounded shadow-md w-96 flex justify-between">
-                <button type="button" class="bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue">
-                    <a href="{% url "login" %}">Login</a>
+                <!-- Lawyer Registration Button -->
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-l-md hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue active:bg-blue-800">
+                    <a href="{% url 'lawyer_register' %}">
+                        Lawyer Registration
+                    </a>
                 </button>
-                <a href="{% url "register" %}" class="text-blue-500">Register</a>
+
+                <!-- User Registration Button -->
+                <button class="bg-green-500 text-white px-4 py-2 hover:bg-green-600 focus:outline-none focus:shadow-outline-green active:bg-green-800">
+                    <a href="{% url 'user_register' %}">
+                        User Registration
+                    </a>
+                </button>
+
+                <!-- Login Button -->
+                <button class="bg-indigo-500 text-white px-4 py-2 rounded-r-md hover:bg-indigo-600 focus:outline-none focus:shadow-outline-indigo active:bg-indigo-800">
+                    <a href="{% url 'login' %}">
+                        Login
+                    </a>
+                </button>
             </div>
         </div>
     </div>

@@ -65,18 +65,18 @@ def logout(request):
         return redirect('login')
 
 
-def register(request):
+def user_register(request):
     if request.method == "POST":
         email = request.POST['email']
         password = request.POST['Password']
 
         try:
-            user = aut.create_user_with_email_and_password(email, password)
+            aut.create_user_with_email_and_password(email, password)
             return redirect('login')
         except Exception as e:
             messages.info(request, "Either this Email-ID is taken or the password is less than 6 characters.")
             print('Exception: ', e)
-            return redirect('register')
+            return redirect('user_register')
 
     else:
         try:
@@ -87,7 +87,7 @@ def register(request):
                 raise KeyError
         except KeyError as e:
             print('Session is not active. Exception: ', e)
-            return render(request, 'register.html')
+            return render(request, 'user_register.html')
 
 
 def dashboard(request):
@@ -99,3 +99,34 @@ def dashboard(request):
     except KeyError as e:
         print("Session not active: ", e)
         return redirect('login')
+
+
+def lawyer_register(request):
+    if request.method == "POST":
+        email = request.POST['email']
+        password = request.POST['password']
+        name = request.POST['name']
+        phone = request.POST['phone']
+        address = request.POST['address']
+        expertise = request.POST['expertise']
+        experience = request.POST['experience']
+
+        try:
+            aut.create_user_with_email_and_password(email, password)
+            return redirect('login')
+        except Exception as e:
+            messages.info(request, "Either this Email-ID is taken or the password is less than 6 characters.")
+            print('Exception: ', e)
+            return redirect('lawyer_register')
+
+    else:
+        try:
+            if request.session['uid']:
+                print('Session is active')
+                return redirect('dashboard')
+            else:
+                raise KeyError
+        except KeyError as e:
+            print('Session is not active. Exception: ', e)
+            return render(request, 'lawyer_register.html')
+
