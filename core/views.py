@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from .firebase_config import *
 from django.contrib import messages
-
 import pyrebase
+from django.http import HttpResponse
 
 config = {
     'apiKey': "AIzaSyC9Su0Qp87w52JnFegOQJLPNAC5qmNepik",
@@ -18,16 +18,17 @@ fb = pyrebase.initialize_app(config)
 aut = fb.auth()
 
 
-# Login / Logout
 def home(request):
-    if request.session['uid']:
-        return redirect('dashboard')
-    else:
-        request.session['uid'] = None
+    try:
+        if request.session['uid']:
+            return redirect('dashboard')
+        else:
+            return render(request, 'home.html')
+    except KeyError as e:
+        print("Error denied: ", e)
         return render(request, 'home.html')
 
 
-# Logout required
 def login(request):
     if request.method == "POST":
         email = request.POST['email']
@@ -36,21 +37,35 @@ def login(request):
         try:
             user = aut.sign_in_with_email_and_password(email, password)
             request.session['uid'] = user['localId']
-            return redirect("dashboard")
+            return redirect('dashboard')
         except Exception as e:
-            request.session['uid'] = None
-            messages.info(request, "Either password or email-id is incorrect, try again.")
-            return redirect("login")
+            messages.info(request, "Invalid Email-ID or password")
+            print('Exception: ', e)
+            return redirect('login')
 
     else:
-        if not request.session['uid']:
-            request.session['uid'] = None
+        try:
+            if request.session['uid']:
+                print('Session is active')
+                return redirect('dashboard')
+            else:
+                raise KeyError
+        except KeyError as e:
+            print('Session is not active. Exception: ', e)
             return render(request, 'login.html')
-        else:
-            return redirect('dashboard')
 
 
-# Logout required
+def logout(request):
+    try:
+        if request.session['uid']:
+            print('Session is active')
+            request.session['uid'] = None
+        return redirect('login')
+    except KeyError as e:
+        print('Exception occurred: ', e)
+        return redirect('login')
+
+
 def register(request):
     if request.method == "POST":
         email = request.POST['email']
@@ -58,29 +73,30 @@ def register(request):
 
         try:
             user = aut.create_user_with_email_and_password(email, password)
-            return redirect("login")
+            return redirect('login')
         except Exception as e:
-            print(e)
-            messages.info(request, "Something went wrong!!")
-            return redirect("register")
+            messages.info(request, "Maybe make a password with 6 or more characters")
+            print('Exception: ', e)
+            return redirect('register')
 
     else:
-        if not request.session['uid']:
+        try:
+            if request.session['uid']:
+                print('Session is active')
+                return redirect('dashboard')
+            else:
+                raise KeyError
+        except KeyError as e:
+            print('Session is not active. Exception: ', e)
             return render(request, 'register.html')
-        else:
-            return redirect('dashboard')
 
 
-# Login required
 def dashboard(request):
-    if request.session.get('uid'):
-        return render(request, 'dashboard.html')
-    else:
-        return redirect("login")
-
-
-# Login required
-def logout(request):
-    if request.session.get('uid'):
-        request.session['uid'] = None
-    return redirect('login')
+    try:
+        if request.session['uid']:
+            return render(request, 'dashboard.html')
+        else:
+            raise KeyError
+    except KeyError as e:
+        print("Session not active: ", e)
+        return redirect('login')
