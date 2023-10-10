@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from .firebase_config import *
 from django.contrib import messages
 import pyrebase
-from django.http import HttpResponse
 
 config = {
     'apiKey': "AIzaSyC9Su0Qp87w52JnFegOQJLPNAC5qmNepik",
@@ -75,7 +74,7 @@ def register(request):
             user = aut.create_user_with_email_and_password(email, password)
             return redirect('login')
         except Exception as e:
-            messages.info(request, "Maybe make a password with 6 or more characters")
+            messages.info(request, "Either this Email-ID is taken or the password is less than 6 characters.")
             print('Exception: ', e)
             return redirect('register')
 
