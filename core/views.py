@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect
 from .firebase_config import *
 from django.contrib import messages
 import pyrebase
+from firebase_admin import credentials, firestore
+
+fire_db = firestore.client()
 
 config = {
     'apiKey': "AIzaSyC9Su0Qp87w52JnFegOQJLPNAC5qmNepik",
@@ -69,9 +72,24 @@ def user_register(request):
     if request.method == "POST":
         email = request.POST['email']
         password = request.POST['Password']
+        name = request.POST['name']
+        aadhar_id = request.POST['aadhar_id']
+        phone = request.POST['phone']
+        address = request.POST['address']
 
         try:
             aut.create_user_with_email_and_password(email, password)
+            user_ids = fire_db.collection('User').list_documents()
+            for x in user_ids:
+                my_id = int(x.id)
+            user_data = {
+                'name': name,
+                'email': email,
+                'aadhar_id': aadhar_id,
+                'phone': phone,
+                'address': address
+            }
+            fire_db.collection('User').document(str(my_id + 1)).set(user_data)
             return redirect('login')
         except Exception as e:
             messages.info(request, "Either this Email-ID is taken or the password is less than 6 characters.")
@@ -113,6 +131,18 @@ def lawyer_register(request):
 
         try:
             aut.create_user_with_email_and_password(email, password)
+            lawyer_ids = fire_db.collection('Lawyers').list_documents()
+            for x in lawyer_ids:
+                my_id = int(x.id)
+            user_data = {
+                'name': name,
+                'email': email,
+                'expertise': expertise,
+                'experience': experience,
+                'phone': phone,
+                'address': address
+            }
+            fire_db.collection('Lawyers').document(str(my_id + 1)).set(user_data)
             return redirect('login')
         except Exception as e:
             messages.info(request, "Either this Email-ID is taken or the password is less than 6 characters.")
