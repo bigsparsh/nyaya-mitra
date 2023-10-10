@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Nyaya-Mitra</title>
+</head>
+<body class="bg-gray-100">
+
+<!-- Navigation -->
+<nav class="bg-blue-500 p-4">
+    <div class="container mx-auto flex justify-between items-center">
+        <div class="text-white text-lg font-semibold">Nyaya-Mitra</div>
+        <div>
+            <a href="#" class="text-white mr-4">Home</a>
+            <a href="#" class="text-white">Hire a Lawyer</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<div class="bg-gray-800 text-white text-center py-20">
+    <div class="container mx-auto">
+        <h1 class="text-4xl font-semibold mb-4">Find Your Legal Companion with Nyaya-Mitra</h1>
+        <p class="text-lg mb-8">Expert legal advice and representation just a click away.</p>
+        <div>
+            <a href="#" class="bg-blue-500 text-white px-6 py-3 rounded-md hover:bg-blue-600">Hire a Lawyer</a>
+        </div>
+    </div>
+</div>
+
+<!-- About Nyaya-Mitra Section -->
+<div class="container mx-auto mt-12">
+    <h2 class="text-2xl font-semibold mb-6">About Nyaya-Mitra</h2>
+    <p class="mb-4">Nyaya-Mitra is your trusted platform to connect with experienced and dedicated lawyers. Whether you need legal advice, assistance, or representation, Nyaya-Mitra is here to simplify the process.</p>
+    <p>Our mission is to make legal services accessible to everyone. With Nyaya-Mitra, you can browse through a diverse pool of lawyers, read reviews, and choose the right legal expert for your needs.</p>
+</div>
+
+<!-- Login and Register Section -->
+<div class="bg-gray-100 py-12">
+    <div class="container mx-auto flex items-center justify-center">
+        <div class="bg-white p-8 rounded shadow-md w-96 flex justify-between">
+                <button type="button" class="bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue">
+                    <a href="{% url "login" %}">Login</a>
+                </button>
+                <a href="{% url "register" %}" class="text-blue-500">Register</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Legal Services Section -->
+<div class="container mx-auto mt-12">
+    <h2 class="text-2xl font-semibold mb-6">Our Legal Services</h2>
+    <p class="mb-4">Nyaya-Mitra offers a wide range of legal services, including but not limited to:</p>
+    <ul class="list-disc list-inside">
+        <li>Legal Consultation</li>
+        <li>Court Representation</li>
+        <li>Document Drafting</li>
+        <li>Contract Review</li>
+        <li>Family Law Services</li>
+        <li>Business Legal Support</li>
+    </ul>
+</div>
+
+<!-- Footer Section -->
+<footer class="bg-gray-800 text-white py-8">
+    <div class="container mx-auto text-center">
+        <p>&copy; 2023 Nyaya-Mitra. All rights reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>
