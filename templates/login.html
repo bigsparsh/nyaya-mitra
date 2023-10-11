@@ -1,39 +1,32 @@
 {% extends 'base.html' %}
 {% block title %}  Login {% endblock %}
+{% block links %}
+
+<a href="{% url 'home' %}" class="px-5 py-2 duration-500">Home</a>
+<a href="{% url 'lawyer_register' %}" class="px-5 py-2 duration-500">Lawyer Register</a>
+<a href="{% url 'user_register' %}" class="px-5 py-2 duration-500">User Register</a>
+
+{% endblock %}
 {% block content %}
 
-    <div class="bg-white p-8 rounded shadow-md w-96">
+    <main class="flex justify-center py-10 bg-slate-900">
+        <div class="register px-16 py-10 rounded-lg flex flex-col gap-3 w-1/2 border border-white bg-slate-700 text-white overflow-clip">
+            <h1 class="text-4xl font-semibold">Login</h1>
+            <hr>
+            <form action="" method="POST" class="flex flex-col gap-2">
+                {% csrf_token %}
+                <label class="font-light" for="email">Email-ID:</label>
+                <input class="bg-slate-100 outline-none ring-slate-400 focus:ring-4 py-2 px-5 text-slate-900 rounded-md" type="email" name="email" id="email">
+                <label class="font-light" for="password">Password:</label>
+                <input class="bg-slate-100 outline-none ring-slate-400 focus:ring-4 py-2 px-5 text-slate-900 rounded-md" type="password" name="password" id="password">
 
-        <h1 class="text-2xl font-semibold mb-6">Login</h1>
+                {% for msg in messages %}
+                    <h1 class="text-sm rounded-md bg-red-600 color-white py-1 px-3">{{msg}}</h1>
+                {% endfor %}
+                <input type="submit" value="Log In" class="focus:font-bold ring-offset-4 mt-5 text-xl border py-2 rounded-lg border-slate-100 active:bg-slate-100 active:text-slate-900 ring-slate-500 focus:ring-4">
+            </form>
+        </div>
 
-        {% for msg in messages %}
-
-        <h1 class="text-red-500 pb-5"> {{ msg }} </h1>
-
-        {% endfor %}
-
-        <!-- Form -->
-        <form action="" method="POST">
-            {% csrf_token %}
-            <!-- Email Input -->
-            <div class="mb-4">
-                <label for="email" class="block text-gray-600 text-sm font-medium mb-2">Email</label>
-                <input type="email" id="email" name="email" class="w-full border rounded px-3 py-2 focus:outline-none focus:border-blue-500" required>
-            </div>
-
-            <!-- Password Input -->
-            <div class="mb-6">
-                <label for="password" class="block text-gray-600 text-sm font-medium mb-2">Password</label>
-                <input type="password" id="password" name="password" class="w-full border rounded px-3 py-2 focus:outline-none focus:border-blue-500" required>
-            </div>
-
-            <!-- Submit Button -->
-            <button type="submit" class="w-full bg-blue-500 text-white rounded px-3 py-2 hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
-                Login
-            </button>
-
-        </form>
-
-    </div>
+    </main>
 
 {% endblock %}

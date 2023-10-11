@@ -71,7 +71,7 @@ def logout(request):
 def user_register(request):
     if request.method == "POST":
         email = request.POST['email']
-        password = request.POST['Password']
+        password = request.POST['password']
         name = request.POST['name']
         aadhar_id = request.POST['aadhar_id']
         phone = request.POST['phone']
@@ -126,8 +126,21 @@ def lawyer_register(request):
         name = request.POST['name']
         phone = request.POST['phone']
         address = request.POST['address']
-        expertise = request.POST['expertise']
+        # Expertise
+        get_expertise = {
+            'Divorce': request.POST.get('divorce', 'off'),
+            'Crime': request.POST.get('crime', 'off'),
+            'Documentation': request.POST.get('documentation', 'off'),
+            'Property': request.POST.get('property', 'off')
+        }
+
+        expertise = []
+        for x in get_expertise.keys():
+            if get_expertise[x] == 'on':
+                expertise.append(x)
+
         experience = request.POST['experience']
+        bar_id = request.POST['bar_id']
 
         try:
             aut.create_user_with_email_and_password(email, password)
@@ -140,7 +153,8 @@ def lawyer_register(request):
                 'expertise': expertise,
                 'experience': experience,
                 'phone': phone,
-                'address': address
+                'address': address,
+                'bar_id': bar_id
             }
             fire_db.collection('Lawyers').document(str(my_id + 1)).set(user_data)
             return redirect('login')

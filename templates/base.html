@@ -29,11 +29,7 @@
     <nav class="flex px-10 py-3 justify-between relative items-center bg-slate-100 text-sky-950 border-b-2 border-sky-50 overflow-hidden h-fit">
         <img src="{% static 'assets/logo.png' %}" width="125" class="rounded-md absolute self-start top-1">
         <div class="links flex gap-5 text-xl font-semibold items-center ml-32">
-            <a href="{% url 'home' %}" class="px-5 py-2 duration-500">Home</a>
-            <a href="{% url 'login' %}" class="px-5 py-2 duration-500">Login</a>
-            <a href="{% url 'lawyer_register' %}" class="px-5 py-2 duration-500">Lawyer Register</a>
-            <a href="{% url 'user_register' %}" class="px-5 py-2 duration-500">User Register</a>
-            <a href="{% url 'dashboard' %}" class="px-5 py-2 duration-500">Dashboard</a>
+            {% block links %}{% endblock %}
         </div>
         <div class="profile-block flex h-1/2 border border-sky-950 rounded-xl overflow-hidden">
             <div class="image flex items-center justify-center p-3 bg-slate-900 text-sky-50">

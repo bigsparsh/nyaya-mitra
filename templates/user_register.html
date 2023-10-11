@@ -1,61 +1,41 @@
 {% extends 'base.html' %}
 {% block title %} Register User {% endblock %}
+{% block links %}
+
+<a href="{% url 'home' %}" class="px-5 py-2 duration-500">Home</a>
+<a href="{% url 'lawyer_register' %}" class="px-5 py-2 duration-500">Lawyer Register</a>
+<a href="{% url 'login' %}" class="px-5 py-2 duration-500">Login</a>
+
+{% endblock %}
 {% block content %}
 
-    <div class="bg-white p-8 rounded shadow-md w-96">
-        <h2 class="text-2xl font-semibold mb-6">Registration Form</h2>
+    <main class="flex justify-center py-10 bg-slate-900">
 
-        {% for msg in messages %}
+        <div class="register px-16 py-10 rounded-lg flex flex-col gap-3 w-1/2 border border-white bg-slate-700 text-white overflow-clip">
+            <h1 class="text-4xl font-semibold">Register as a User</h1>
+            <hr>
+            <form action="" method="POST" class="flex flex-col gap-2">
+                {% csrf_token %}
+                <label class="font-light" for="name">Name:</label>
+                <input class="bg-slate-100 outline-none ring-slate-400 focus:ring-4 py-2 px-5 text-slate-900 rounded-md" type="text" name="name" id="name">
+                <label class="font-light" for="email">Email-ID:</label>
+                <input class="bg-slate-100 outline-none ring-slate-400 focus:ring-4 py-2 px-5 text-slate-900 rounded-md" type="email" name="email" id="email">
+                <label class="font-light" for="password">Password:</label>
+                <input class="bg-slate-100 outline-none ring-slate-400 focus:ring-4 py-2 px-5 text-slate-900 rounded-md" type="password" name="password" id="password">
+                <label class="font-light" for="phone">Phone:</label>
+                <input class="bg-slate-100 outline-none ring-slate-400 focus:ring-4 py-2 px-5 text-slate-900 rounded-md" type="number" name="phone" id="phone">
+                <label class="font-light" for="aadhar_id">Aadhar-ID:</label>
+                <input class="bg-slate-100 outline-none ring-slate-400 focus:ring-4 py-2 px-5 text-slate-900 rounded-md" type="number" name="aadhar_id" id="aadhar_id">
+                <label class="font-light" for="address">Address:</label>
+                <textarea class="bg-slate-100 outline-none ring-slate-400 focus:ring-4 py-2 px-5 text-slate-900 rounded-md" name="address" id="address" cols="30" rows="5"></textarea>
 
-        <h1 class="text-red-500 pb-5"> {{ msg }} </h1>
+                {% for msg in messages %}
+                    <h1 class="text-sm rounded-md bg-red-600 color-white py-1 px-3">{{msg}}</h1>
+                {% endfor %}
+                <input type="submit" value="Register" class="focus:font-bold ring-offset-4 mt-5 text-xl border py-2 rounded-lg border-slate-100 active:bg-slate-100 active:text-slate-900 ring-slate-500 focus:ring-4">
+            </form>
+        </div>
 
-        {% endfor %}
-
-        <form action="#" method="POST">
-            {% csrf_token %}
-            <!-- Name -->
-            <div class="mb-4">
-                <label for="name" class="block text-sm font-medium text-gray-600">Name</label>
-                <input type="text" id="name" name="name" autocomplete="name" class="mt-1 p-2 w-full border rounded-md">
-            </div>
-
-            <!-- Email -->
-            <div class="mb-4">
-                <label for="email" class="block text-sm font-medium text-gray-600">Email</label>
-                <input type="email" id="email" name="email" autocomplete="email" class="mt-1 p-2 w-full border rounded-md">
-            </div>
-
-            <!-- Aadhar ID -->
-            <div class="mb-4">
-                <label for="aadhar_id" class="block text-sm font-medium text-gray-600">Aadhar ID</label>
-                <input type="text" id="aadhar_id" name="aadhar_id" autocomplete="off" class="mt-1 p-2 w-full border rounded-md">
-            </div>
-
-            <!-- Address -->
-            <div class="mb-4">
-                <label for="address" class="block text-sm font-medium text-gray-600">Address</label>
-                <textarea id="address" name="address" rows="3" class="mt-1 p-2 w-full border rounded-md"></textarea>
-            </div>
-
-            <!-- Phone -->
-            <div class="mb-4">
-                <label for="phone" class="block text-sm font-medium text-gray-600">Phone</label>
-                <input type="tel" id="phone" name="phone" autocomplete="tel" class="mt-1 p-2 w-full border rounded-md">
-            </div>
-
-            <!-- Password -->
-            <div class="mb-4">
-                <label for="Password" class="block text-sm font-medium text-gray-600">Password</label>
-                <input type="password" id="Password" name="Password" autocomplete="off" class="mt-1 p-2 w-full border rounded-md">
-            </div>
-
-            <!-- Submit Button -->
-            <div class="mt-6">
-                <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue">
-                    Register
-                </button>
-            </div>
-        </form>
-    </div>
+    </main>
 
 {% endblock %}

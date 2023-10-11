@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
 {% block title %} Dashboard {% endblock %}
+{% block links %}
+
+<a href="{% url 'logout' %}" class="px-5 py-2 duration-500">Logout</a>
+
+{% endblock %}
 {% block content %}
     <!-- Header -->
     <header class="bg-blue-500 text-white py-4">
