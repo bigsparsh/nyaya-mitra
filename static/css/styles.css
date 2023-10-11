@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+* {
+  font-family: "inter";
+  transition: 0.25s;
+}
+::-webkit-scrollbar {
+  width: 5px;
+  background-color: #0F172A;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: lightblue;
+  border-radius: 10px;
+}
+
+nav a {
+  position: relative;
+}
+nav a::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  translate: -50% -50%;
+  border-radius: 10px;
+  scale: 0;
+  opacity: 0;
+  transition: 0.5s;
+  background-color: #0F172A;
+  content: "";
+}
+nav a:hover {
+  z-index: 0;
+  color: white;
+}
+nav a:hover::before {
+  scale: 1;
+  z-index: -1;
+  opacity: 1;
+}/*# sourceMappingURL=styles.css.map */

@@ -1,91 +1,157 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <title>Nyaya-Mitra</title>
-</head>
-<body class="bg-gray-100">
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Home {% endblock %}
+{% block content %}
 
-<!-- Navigation -->
-<nav class="bg-blue-500 p-4">
-    <div class="container mx-auto flex justify-between items-center">
-        <div class="text-white text-lg font-semibold">Nyaya-Mitra</div>
-        <div>
-            <a href="#" class="text-white mr-4">Home</a>
-            <a href="#" class="text-white">Hire a Lawyer</a>
+<main class="home flex text-white gap-10 flex px-10 items-center h-[85vh]" style="background: linear-gradient(rgba(19, 25, 33, 0.5647058824), #131921), url('{% static 'assets/court.png' %}') center/cover;">
+
+            <div class="sect-left basis-3/5 ">
+                <h1 class="text-7xl font-semibold pr-28 leading-[.85]">Find best legal services in India</h1>
+                <p class="text-3xl mt-5">#1 Legal helper since 2001</p>
+                <div class="search-box relative mt-7">
+                    <i class="fa-solid fa-magnifying-glass absolute top-[22.5%] text-xl left-[12.5px]"></i>
+                    <input type="text" class="py-3 bg-[#13192150] w-full px-10 border-2 border-white rounded-xl" placeholder="Enter the type of service (e.g. Documentation, Criminal Lawyers ,etc)">
+                </div>
+                <div class="cards grid grid-cols-4 border-2 border-white rounded-xl overflow-hidden text-center mt-7">
+                    <div class="border-r-2 border-white card grow flex flex-col justify-evenly items-center py-7 gap-3">
+                        <i class="fa-solid fa-location-dot text-4xl"></i>
+                        <h3 class="leading-none text-xl font-light">Lawyers in<br>my area</h3>
+                    </div>
+                    <div class="border-r-2 border-white card grow flex flex-col justify-evenly items-center py-7 gap-3">
+                        <i class="fa-solid fa-triangle-exclamation text-4xl"></i>
+                        <h3 class="leading-none text-xl font-light">Emergency<br>Lawyers</h3>
+                    </div>
+                    <div class="border-r-2 border-white card grow flex flex-col justify-evenly items-center py-7 gap-3">
+                        <i class="fa-solid fa-book text-4xl"></i>
+                        <h3 class="leading-none text-xl font-light">Legal<br>Documentation</h3>
+                    </div>
+                    <div class="card grow flex flex-col justify-evenly items-center py-7 gap-3">
+                        <i class="fa-solid fa-copyright text-4xl"></i>
+                        <h3 class="leading-none text-xl font-light">Copyright<br>Infringement</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sec-right basis-2/5 flex flex-col bg-slate-900 h-full w-full py-7 px-10 gap-5">
+                <h1 class="text-3xl font-light">About Us</h1>
+                <hr class="">
+                <div class="img w-full h-[55%] rounded-lg ring-4 ring-offset-4 ring-offset-slate-900 ring-slate-500" style="background: url('{% static 'assets/court.png' %}') center/cover"></div>
+                <p>We are a cross-platform entity that aims to improve the accessibility for the Indian citizens and provide a place where people can get rid of their legal issue or just hire a lawyer for legal advices for business, agency, enterprise and more.</p>
+            </div>
+</main>
+
+    <div class="sec-2 h-screen flex flex-col">
+        <div class="head bg-slate-900 text-white text-center py-5">
+            <h1 class="font-bold tracking-widest text-4xl">OUR TOP LAWYERS</h1>
+            <p class="text-xl">We believe they can <span class="font-semibold">help</span> you</p>
+        </div>
+        <div class="main grow flex items-center justify-evenly">
+
+            <div class="card-big flex flex-col h-[85%] border border-slate-900 w-1/4 rounded-xl overflow-hidden">
+                <div class="img-name bg-contain bg-no-repeat bg-slate-900 bg-top flex flex-col-reverse basis-1/2 bg-[url('{% static 'assets/lawyer_4.png' %}')] text-center">
+                    <div class="text bg-slate-900/75 py-2">
+                        <h2 class="text-2xl font-semibold text-white">Florence LawsonDean</h2>
+                        <div class="rating flex gap-2 justify-center">
+                            <i class="fa-solid fa-star text-xl text-yellow-500"></i>
+                            <i class="fa-solid fa-star text-xl text-yellow-500"></i>
+                            <i class="fa-solid fa-star text-xl text-yellow-500"></i>
+                            <i class="fa-solid fa-star text-xl text-yellow-500"></i>
+                            <i class="fa-solid fa-star-half-stroke text-xl text-yellow-500"></i>
+                            <p class="text-yellow-500 text-xl"> | <b>4.7</b></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="info grow flex bg-white items-start text-center px-3 py-2 leading-5 overflow-y-scroll basis-1/4">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit ducimus perferendis nostrum aperiam natus labore rerum consequuntur repudiandae excepturi, eius suscipit nobis porro cum harum, accusantium molestias? At, laboriosam! Animi maiores molestiae modi nesciunt dolore, sit eaque iste neque debitis ex et odit velit labore harum nulla reiciendis quo? Officia aliquam molestiae consequatur nihil recusandae harum delectus aut asperiores minima magni sapiente adipisci ipsum debitis porro distinctio, nemo, quaerat eius? Delectus eos labore aspernatur itaque ducimus accusamus consectetur nisi totam, rem odit commodi numquam eligendi ab nemo beatae sint soluta iure deleniti excepturi! Officiis numquam distinctio laboriosam sunt iusto. Non.
+                </div>
+                <button class="more-info py-2 bg-slate-900 text-white text-xl font-semibold">More Info +</button>
+            </div>
+
+            <div class="card-big flex flex-col h-[85%] border border-slate-900 w-1/4 rounded-xl overflow-hidden">
+                <div class="img-name bg-contain bg-no-repeat bg-slate-900 bg-top flex flex-col-reverse basis-1/2 bg-[url('{% static 'assets/lawyer_2.png' %}')] text-center">
+                    <div class="text bg-slate-900/75 py-2">
+                        <h2 class="text-2xl font-semibold text-white">Eddie LoganDean</h2>
+                        <div class="rating flex gap-2 justify-center">
+                            <i class="fa-solid fa-star text-xl text-yellow-500"></i>
+                            <i class="fa-solid fa-star text-xl text-yellow-500"></i>
+                            <i class="fa-solid fa-star text-xl text-yellow-500"></i>
+                            <i class="fa-solid fa-star text-xl text-yellow-500"></i>
+                            <i class="fa-solid fa-star text-xl text-yellow-500"></i>
+                            <p class="text-yellow-500 text-xl"> | <b>5.0</b></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="info grow flex bg-white items-start text-center px-3 py-2 leading-5 overflow-y-scroll basis-1/4">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit ducimus perferendis nostrum aperiam natus labore rerum consequuntur repudiandae excepturi, eius suscipit nobis porro cum harum, accusantium molestias? At, laboriosam! Animi maiores molestiae modi nesciunt dolore, sit eaque iste neque debitis ex et odit velit labore harum nulla reiciendis quo? Officia aliquam molestiae consequatur nihil recusandae harum delectus aut asperiores minima magni sapiente adipisci ipsum debitis porro distinctio, nemo, quaerat eius? Delectus eos labore aspernatur itaque ducimus accusamus consectetur nisi totam, rem odit commodi numquam eligendi ab nemo beatae sint soluta iure deleniti excepturi! Officiis numquam distinctio laboriosam sunt iusto. Non.
+                </div>
+                <button class="more-info py-2 bg-slate-900 text-white text-xl font-semibold">More Info +</button>
+            </div>
+
+            <div class="card-big flex flex-col h-[85%] border border-slate-900 w-1/4 rounded-xl overflow-hidden">
+                <div class="img-name bg-contain bg-no-repeat bg-slate-900 bg-top flex flex-col-reverse basis-1/2 bg-[url('{% static 'assets/lawyer_3.png' %}')] text-center">
+                    <div class="text bg-slate-900/75 py-2">
+                        <h2 class="text-2xl font-semibold text-white">Isabel MackDean</h2>
+                        <div class="rating flex gap-2 justify-center">
+                            <i class="fa-solid fa-star text-xl text-yellow-500"></i>
+                            <i class="fa-solid fa-star text-xl text-yellow-500"></i>
+                            <i class="fa-solid fa-star text-xl text-yellow-500"></i>
+                            <i class="fa-solid fa-star text-xl text-yellow-500"></i>
+                            <i class="fa-solid fa-star-half-stroke text-xl text-yellow-500"></i>
+                            <p class="text-yellow-500 text-xl"> | <b>4.85</b></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="info grow flex bg-white items-start text-center px-3 py-2 leading-5 overflow-y-scroll basis-1/4">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit ducimus perferendis nostrum aperiam natus labore rerum consequuntur repudiandae excepturi, eius suscipit nobis porro cum harum, accusantium molestias? At, laboriosam! Animi maiores molestiae modi nesciunt dolore, sit eaque iste neque debitis ex et odit velit labore harum nulla reiciendis quo? Officia aliquam molestiae consequatur nihil recusandae harum delectus aut asperiores minima magni sapiente adipisci ipsum debitis porro distinctio, nemo, quaerat eius? Delectus eos labore aspernatur itaque ducimus accusamus consectetur nisi totam, rem odit commodi numquam eligendi ab nemo beatae sint soluta iure deleniti excepturi! Officiis numquam distinctio laboriosam sunt iusto. Non.
+                </div>
+                <button class="more-info py-2 bg-slate-900 text-white text-xl font-semibold">More Info +</button>
+            </div>
+
         </div>
     </div>
-</nav>
 
-<!-- Hero Section -->
-<div class="bg-gray-800 text-white text-center py-20">
-    <div class="container mx-auto">
-        <h1 class="text-4xl font-semibold mb-4">Find Your Legal Companion with Nyaya-Mitra</h1>
-        <p class="text-lg mb-8">Expert legal advice and representation just a click away.</p>
-        <div>
-            <a href="#" class="bg-blue-500 text-white px-6 py-3 rounded-md hover:bg-blue-600">Hire a Lawyer</a>
-        </div>
-    </div>
-</div>
 
-<!-- About Nyaya-Mitra Section -->
-<div class="container mx-auto mt-12">
-    <h2 class="text-2xl font-semibold mb-6">About Nyaya-Mitra</h2>
-    <p class="mb-4">Nyaya-Mitra is your trusted platform to connect with experienced and dedicated lawyers. Whether you need legal advice, assistance, or representation, Nyaya-Mitra is here to simplify the process.</p>
-    <p>Our mission is to make legal services accessible to everyone. With Nyaya-Mitra, you can browse through a diverse pool of lawyers, read reviews, and choose the right legal expert for your needs.</p>
-</div>
+    <div class="border focus-within:border-none  border-slate-100 group h-[50px] w-[50px] bg-slate-900 focus-within:h-[90%] flex items-center justify-center focus-within:w-1/3 p-5 overflow-hidden bottom-5 right-5 fixed rounded-2xl duration-500" tabindex="0">
 
-<!-- Login and Register Section -->
-<div class="bg-gray-100 py-12">
-    <div class="container mx-auto flex items-center justify-center">
-        <div class="bg-white p-8 rounded shadow-md w-96 flex justify-between">
-                <!-- Lawyer Registration Button -->
-                <button class="bg-blue-500 text-white px-4 py-2 rounded-l-md hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue active:bg-blue-800">
-                    <a href="{% url 'lawyer_register' %}">
-                        Lawyer Registration
-                    </a>
-                </button>
+        <i class="fa-brands fa-rocketchat block text-white text-xl group-focus-within:hidden"></i>
 
-                <!-- User Registration Button -->
-                <button class="bg-green-500 text-white px-4 py-2 hover:bg-green-600 focus:outline-none focus:shadow-outline-green active:bg-green-800">
-                    <a href="{% url 'user_register' %}">
-                        User Registration
-                    </a>
-                </button>
+        <div class="container h-full rounded-lg bg-gray-100 w-full flex-col justify-between overflow-x-hidden hidden group-focus-within:flex">
+            <div class="chatbox flex flex-col gap-3 w-full h-full px-5 pt-5 bg-slate-100 overflow-y-scroll" id="chatbox">
+                <div class="sent-msg p-3 bg-white w-2/3 rounded-r-xl rounded-b-xl h-fit"> Hello, How are you? </div>
+                <div class="rec-msg p-3 bg-blue-300 w-2/3 rounded-l-xl rounded-b-xl text-white self-end h-fit"> Hey, I am good. I wanted to contact you because I am inspired with yor work. </div>
+                <div class="sent-msg p-3 bg-white w-2/3 rounded-r-xl rounded-b-xl h-fit"> It's my honour to hear that. </div>
+                <div class="sent-msg p-3 bg-white w-2/3 rounded-r-xl rounded-b-xl h-fit"> What did you wanted to know? </div>
+                <div class="rec-msg p-3 bg-blue-300 w-2/3 rounded-l-xl rounded-b-xl text-white self-end h-fit"> I think I will contact you to get more info, but for now I may want to know about your company. </div>
+            </div>
+            <div class="msg sticky px-3 bottom-0 py-3">
 
-                <!-- Login Button -->
-                <button class="bg-indigo-500 text-white px-4 py-2 rounded-r-md hover:bg-indigo-600 focus:outline-none focus:shadow-outline-indigo active:bg-indigo-800">
-                    <a href="{% url 'login' %}">
-                        Login
-                    </a>
-                </button>
+                    <input class="bottom-bar w-full rounded-full bg-white py-3 pl-5 pr-12 outline-none" autocomplete="off" id="msg" placeholder="Enter your message">
+                <i class="fa-solid fa-paper-plane absolute text-xl cursor-pointer top-1/3 right-7 text-gray-500 hover:text-gray-800" id="send"></i>
             </div>
         </div>
     </div>
-</div>
 
-<!-- Legal Services Section -->
-<div class="container mx-auto mt-12">
-    <h2 class="text-2xl font-semibold mb-6">Our Legal Services</h2>
-    <p class="mb-4">Nyaya-Mitra offers a wide range of legal services, including but not limited to:</p>
-    <ul class="list-disc list-inside">
-        <li>Legal Consultation</li>
-        <li>Court Representation</li>
-        <li>Document Drafting</li>
-        <li>Contract Review</li>
-        <li>Family Law Services</li>
-        <li>Business Legal Support</li>
-    </ul>
-</div>
-
-<!-- Footer Section -->
-<footer class="bg-gray-800 text-white py-8">
-    <div class="container mx-auto text-center">
-        <p>&copy; 2023 Nyaya-Mitra. All rights reserved.</p>
+    <div class="sec-3 py-10 px-64 bg-slate-900/80">
+        <div class="box flex bg-white border-4 border-white rounded-2xl">
+            <div class="img bg-cover bg-center bg-[url('{% static 'assets/court-w-judge.png' %}')] rounded-2xl basis-1/3"></div>
+            <div class="another-box basis-2/3 p-5 text-xl pl-10">
+                <p>
+                    Reasons to consider a <span class="font-semibold">Nyaya-Mitra</span> for your legal issues.
+                    <li>                        All lawyers here have <u>atleast experience of 10 years</u>.
+                    </li>
+                    <li>                        Every attourney has <u>solved atleast 7 cases</u>.
+                    </li>
+                    <li>                        We provide you the <u>choice for a lawyer</u>.
+                    </li>
+                </p>
+                <button class="btn px-5 py-2 text-xl font-semibold bg-slate-900 text-white mt-5 rounded-xl w-full">ENQUIRY FORM</button>
+            </div>
+        </div>
     </div>
-</footer>
 
-</body>
-</html>
+    <div class="find-lawyer-sec flex flex-col py-10 gap-5 px-28 items-center justify-center bg-slate-200">
+        <h1 class="text-5xl tracking-[5px] font-bold text-center">FIND THE BEST LAWYERS IN YOUR AREA</h1>
+        <input type="text" class="w-[75%] px-10 py-3 bg-slate-700 text-white rounded-lg outline-none" placeholder="Specify the area of your residence">
+    </div>
+
+{% endblock %}
