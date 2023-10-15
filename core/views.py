@@ -21,14 +21,18 @@ aut = fb.auth()
 
 
 def home(request):
+    result = fire_db.collection('Top_Lawyers').get()
+    top_lawyers = []
+    for r in result:
+        top_lawyers.append(r.to_dict()['path'].get().to_dict())
     try:
         if request.session['uid']:
             return redirect('dashboard')
         else:
-            return render(request, 'home.html')
+            raise KeyError
     except KeyError as e:
         print("Error denied: ", e)
-        return render(request, 'home.html')
+        return render(request, 'home.html', {'top_lawyers': top_lawyers})
 
 
 def login(request):
@@ -87,7 +91,8 @@ def user_register(request):
                 'email': email,
                 'aadhar_id': aadhar_id,
                 'phone': phone,
-                'address': address
+                'address': address,
+                'cases': []
             }
             fire_db.collection('User').document(str(my_id + 1)).set(user_data)
             return redirect('login')
@@ -154,7 +159,8 @@ def lawyer_register(request):
                 'experience': experience,
                 'phone': phone,
                 'address': address,
-                'bar_id': bar_id
+                'bar_id': bar_id,
+                'rating': 0
             }
             fire_db.collection('Lawyers').document(str(my_id + 1)).set(user_data)
             return redirect('login')

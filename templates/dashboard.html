@@ -1,56 +1,240 @@
-{% extends 'base.html' %}
-{% block title %} Dashboard {% endblock %}
-{% block links %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nyaya-Mitra | Lawyer Dashboard</title>
+    <link rel="icon" href="{% static 'assets/logo.png' %}">
+    <script src="//cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="p-2 bg-slate-900 h-screen grid grid-rows-[repeat(10, minmax(0, 1fr))] gap-2 overflow-y-hidden grid-cols-10">
 
-<a href="{% url 'logout' %}" class="px-5 py-2 duration-500">Logout</a>
 
-{% endblock %}
-{% block content %}
-    <!-- Header -->
-    <header class="bg-blue-500 text-white py-4">
-        <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-semibold">Dashboard</h1>
-            <a href="{% url 'logout' %}" class="text-sm">Logout</a>
+    <nav class="col-span-10 flex rounded-xl row-span-2 h-full px-10 py-2 justify-between relative items-center bg-slate-100 text-sky-950 border-b-2 border-sky-50 overflow-hidden h-fit">
+        <img src="{% static 'assets/logo.png' %}" width="125" class=" py-2 rounded-md absolute self-start top-0">
+        <div class="links flex gap-5 text-xl font-semibold items-center ml-32">
+            <a href="#" class="px-5 py-2 duration-500">Queries</a>
+            <a href="#" class="px-5 py-2 duration-500">My Cases</a>
+            <a href="#" class="px-5 py-2 duration-500">Todos</a>
+            <a href="#" class="px-5 py-2 duration-500">Settings</a>
+            <a href="{% url 'logout' %}" class="px-5 py-2 duration-500">Logout</a>
         </div>
-    </header>
+    </nav>
 
-    <!-- Main Content -->
-    <div class="container mx-auto mt-8 flex">
+    <div class="gap-2 row-span-6 col-span-4 px-5 py-3 flex flex-col query-sec h-full basis-2/5 rounded-xl bg-slate-100 overflow-y-scroll justify-start">
+        <h1 class="font-bold text-3xl sticky top-0 left-0 px-3 py-1 bg-slate-100/95 rounded-xl w-fit">Queries</h1>
+        <hr class="border-slate-900">
 
-        <!-- Sidebar -->
-        <aside class="w-1/4 bg-gray-800 text-white p-6">
-            <ul>
-                <li class="mb-4">
-                    <a href="#" class="text-blue-500 hover:text-blue-300">Dashboard</a>
-                </li>
-                <li class="mb-4">
-                    <a href="#" class="text-blue-500 hover:text-blue-300">Analytics</a>
-                </li>
-                <li class="mb-4">
-                    <a href="#" class="text-blue-500 hover:text-blue-300">Settings</a>
-                </li>
-            </ul>
-        </aside>
-
-        <!-- Main Content Area -->
-        <main class="w-3/4 p-8">
-            <h2 class="text-2xl font-semibold mb-4">Welcome to the Dashboard!</h2>
-
-            <!-- Sample Cards -->
-            <div class="flex">
-                <!-- Card 1 -->
-                <div class="bg-white p-6 rounded shadow-md mr-4 flex-1">
-                    <h3 class="text-lg font-semibold mb-2">Total Users</h3>
-                    <p class="text-gray-600">1200</p>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="bg-white p-6 rounded shadow-md flex-1">
-                    <h3 class="text-lg font-semibold mb-2">Revenue</h3>
-                    <p class="text-gray-600">$50,000</p>
-                </div>
+        <div class="query-card h-30 border border-white bg-white/50 flex rounded-xl">
+            <div class="rounded-xl border border-white flex img basis-1/4 bg-slate-900/50 bg-blend-overlay bg-[url('//picsum.photos/200/200')] bg-center bg-cover">
+                <h1 class="font-semibold text-white text-lg p-2 self-end leading-5"> Elnora Simon </h1>
             </div>
-        </main>
+            <div class="right-sec basis-3/4 p-2 flex flex-col gap-2">
+                <h1 class="text-lg font-bold leading-4 text-clip">
+                    Legal documentation for birth certificate
+                </h1>
+                <div class="tags flex gap-2 items-center justify-start ">
+                    <p class="px-3 rounded-full bg-slate-900 text-white text-sm">Documentation</p>
+                    <p class="px-3 rounded-full bg-green-600 text-white text-sm">Fast</p>
+
+                </div>
+                <p class="text-gray-700 text-sm leading-3">
+                    build aboard while examine point silent zero honor tower rubber tiny clearly poet fairly end teacher danger audience law broke exist claws later dream
+                </p>
+            </div>
+        </div>
+
+        <div class="query-card h-30 border border-white bg-white/50 flex rounded-xl">
+            <div class="rounded-xl border border-white flex img basis-1/4 bg-slate-900/50 bg-blend-overlay bg-[url('//picsum.photos/200/200?random=6')] bg-center bg-cover">
+                <h1 class="font-semibold text-white text-lg p-2 self-end leading-5"> Adeline McCarthy </h1>
+            </div>
+            <div class="right-sec basis-3/4 p-2 flex flex-col gap-2">
+                <h1 class="text-lg font-bold leading-4 text-clip">
+                    Illegal holding of private property
+                </h1>
+                <div class="tags flex gap-2 items-center justify-start">
+                    <p class="px-3 rounded-full bg-slate-900 text-white text-sm">Documentation</p>
+                    <p class="px-3 rounded-full bg-slate-900 text-white text-sm">Property</p>
+                    <p class="px-3 rounded-full bg-red-600 text-white text-sm">Slow</p>
+
+                </div>
+                <p class="text-gray-700 text-sm leading-3">
+                    Upward question price gulf roll gain tune physical factor particular finest deep because load dirt easily count throat hide understanding once known camera cream
+                </p>
+            </div>
+        </div>
+
+        <div class="query-card h-30 border border-white bg-white/50 flex rounded-xl">
+            <div class="rounded-xl border border-white flex img basis-1/4 bg-slate-900/50 bg-blend-overlay bg-[url('//picsum.photos/200/200?random=5')] bg-center bg-cover">
+                <h1 class="font-semibold text-white text-lg p-2 self-end leading-5"> Aaron Myers </h1>
+            </div>
+            <div class="right-sec basis-3/4 p-2 flex flex-col gap-2">
+                <h1 class="text-lg font-bold leading-4 text-clip">
+                    Divorce intitation and negotiation
+                </h1>
+                <div class="tags flex gap-2 items-center justify-start ">
+                    <p class="px-3 rounded-full bg-slate-900 text-white text-sm">Documentation</p>
+                    <p class="px-3 rounded-full bg-slate-900 text-white text-sm">Divorce</p>
+                    <p class="px-3 rounded-full bg-green-600 text-white text-sm">Fast</p>
+
+                </div>
+                <p class="text-gray-700 text-sm leading-3">
+                    pie apart laugh late first breakfast ear shown social doll struggle slave shake tales whistle per complex sunlight dried blue independent rising grow rhyme
+                </p>
+            </div>
+        </div>
+
+        <div class="query-card h-30 border border-white bg-white/50 flex rounded-xl">
+            <div class="rounded-xl border border-white flex img basis-1/4 bg-slate-900/50 bg-blend-overlay bg-[url('//picsum.photos/200/200?random=4')] bg-center bg-cover">
+                <h1 class="font-semibold text-white text-lg p-2 self-end leading-5"> Adeline McCarthy </h1>
+            </div>
+            <div class="right-sec basis-3/4 p-2 flex flex-col gap-2">
+                <h1 class="text-lg font-bold leading-4 text-clip">
+                    Illegal claim of government land
+                </h1>
+                <div class="tags flex gap-2 items-center justify-start ">
+                    <p class="px-3 rounded-full bg-slate-900 text-white text-sm">Documentation</p>
+                    <p class="px-3 rounded-full bg-slate-900 text-white text-sm">Property</p>
+                    <p class="px-3 rounded-full bg-red-600 text-white text-sm">Slow</p>
+
+                </div>
+                <p class="text-gray-700 text-sm leading-3">
+                    Upward question price gulf roll gain tune physical factor particular finest deep because load dirt easily count throat hide understanding once known camera cream
+                </p>
+            </div>
+        </div>
+
+        <div class="query-card h-30 border border-white bg-white/50 flex rounded-xl">
+            <div class="rounded-xl border border-white flex img basis-1/4 bg-slate-900/50 bg-blend-overlay bg-[url('//picsum.photos/200/200?random=3')] bg-center bg-cover">
+                <h1 class="font-semibold text-white text-lg p-2 self-end leading-5"> Charlotte Potter </h1>
+            </div>
+            <div class="right-sec basis-3/4 p-2 flex flex-col gap-2">
+                <h1 class="text-lg font-bold leading-4 text-clip">
+                    Generation of bonafide for the MST of roadways buses
+                </h1>
+                <div class="tags flex gap-2 items-center justify-start ">
+                    <p class="px-3 rounded-full bg-slate-900 text-white text-sm">Documentation</p>
+                    <p class="px-3 rounded-full bg-green-600 text-white text-sm">Fast</p>
+
+                </div>
+                <p class="text-gray-700 text-sm leading-3">
+                    harbor where charge effort meant begun train drink stand spread nuts farmer street melted poem acres almost monkey separate father other growth consist present
+                </p>
+            </div>
+        </div>
+
+        <div class="query-card h-30 border border-white bg-white/50 flex rounded-xl">
+            <div class="rounded-xl border border-white flex img basis-1/4 bg-slate-900/50 bg-blend-overlay bg-[url('//picsum.photos/200/200?random=2')] bg-center bg-cover">
+                <h1 class="font-semibold text-white text-lg p-2 self-end leading-5"> Laura McKenzie </h1>
+            </div>
+            <div class="right-sec basis-3/4 p-2 flex flex-col gap-2">
+                <h1 class="text-lg font-bold leading-4 text-clip">
+                    Police assault on civilian
+                </h1>
+                <div class="tags flex gap-2 items-center justify-start ">
+                    <p class="px-3 rounded-full bg-slate-900 text-white text-sm">Crime</p>
+                    <p class="px-3 rounded-full bg-red-600 text-white text-sm">Slow</p>
+
+                </div>
+                <p class="text-gray-700 text-sm leading-3">
+                    tower phrase border out crowd somehow setting electric though curious coal however die damage harbor impossible verb run pan harder break chamber coat except
+                </p>
+            </div>
+        </div>
+
+        <div class="query-card h-30 border border-white bg-white/50 flex rounded-xl">
+            <div class="rounded-xl border border-white flex img basis-1/4 bg-slate-900/50 bg-blend-overlay bg-[url('//picsum.photos/200/200?random=1')] bg-center bg-cover">
+                <h1 class="font-semibold text-white text-lg p-2 self-end leading-5"> Eliza James </h1>
+            </div>
+            <div class="right-sec basis-3/4 p-2 flex flex-col gap-2">
+                <h1 class="text-lg font-bold leading-4 text-clip">
+                    Murder and hiding of evidence under oath
+                </h1>
+                <div class="tags flex gap-2 items-center justify-start ">
+                    <p class="px-3 rounded-full bg-slate-900 text-white text-sm">Crime</p>
+                    <p class="px-3 rounded-full bg-slate-900 text-white text-sm">Forensics</p>
+                    <p class="px-3 rounded-full bg-red-600 text-white text-sm">Slow</p>
+
+                </div>
+                <p class="text-gray-700 text-sm leading-3">
+                    behind nine stove sort hello mouse neck tide suppose muscle forest pay finest over stage gas race soap vast horn herd football tears brick
+                </p>
+            </div>
+        </div>
+
+
     </div>
 
-{% endblock %}
+    <div class="cases-solved row-span-2 col-span-2 bg-slate-100 py-3 rounded-xl text-center flex flex-col justify-center items-center">
+        <h1 class="text-5xl font-semibold">Cases Solved</h1>
+        <h2 class="text-7xl font-black">22</h2>
+    </div>
+    <div class="border border-white profile row-span-2 col-span-1 bg-[url('//picsum.photos/500/500')] bg-center bg-cover rounded-xl">
+
+    </div>
+    <div class="cases-solved row-span-2 text-center col-span-3 bg-slate-100 rounded-xl flex flex-col justify-center items-center">
+        <h1 class="text-4xl font-semibold mb-3">Average User<br>Rating</h1>
+        <div class="rating flex gap-2 justify-center">
+            <i class="fa-solid fa-star text-3xl text-slate-900"></i>
+            <i class="fa-solid fa-star text-3xl text-slate-900"></i>
+            <i class="fa-solid fa-star text-3xl text-slate-900"></i>
+            <i class="fa-solid fa-star text-3xl text-slate-900"></i>
+            <i class="fa-solid fa-star-half-stroke text-3xl text-slate-900"></i>
+        </div>
+        <p class="text-slate-900 text-2xl"><b>4.7</b> | <b>128 Users</b></p>
+
+
+    </div>
+
+    <div class="todos gap-2 row-span-4 col-span-6 px-5 py-3 flex flex-col h-full rounded-xl bg-slate-100 overflow-y-scroll justify-start">
+
+        <h1 class="font-bold text-3xl sticky top-0 left-0 px-3 py-1 bg-slate-100/95 rounded-xl w-fit">Todos</h1>
+        <hr class="border-slate-900">
+
+        <div class="todo-card border border-white rounded-xl text-white">
+            <h1 class="border border-white text-slate-900 text-2xl font-light bg-white/50 px-3 py-1 rounded-t-xl"><i class="fa-solid fa-calendar-days"></i> 15, October 2023 </h1>
+            <div class="points bg-slate-900 overflow-hidden rounded-b-xl text-lg px-3 py-2">
+                <li>Pending documentation for case <b><u>1212300005</u></b>, documentation ID <b><u>415300004</u></b>.</li>
+                <li>Look at the query <b><u>17215000001</u></b> to accept.</li>
+                <li>Contact user <b><u>2119500001</u></b>.</li>
+                <li>Accept referral case <b><u>1212300008</u></b> and contact that user.</li>
+            </div>
+        </div>
+
+        <div class="todo-card border border-white rounded-xl text-white">
+            <h1 class="border border-white text-slate-900 text-2xl font-light bg-white/50 px-3 py-1 rounded-t-xl"><i class="fa-solid fa-calendar-days"></i> 16, October 2023 </h1>
+            <div class="points bg-slate-900 overflow-hidden rounded-b-xl text-lg px-3 py-2">
+                <li>Pending documentation for case <b><u>1212300005</u></b>, documentation ID <b><u>415300004</u></b>.</li>
+                <li>Look at the query <b><u>17215000001</u></b> to accept.</li>
+                <li>Contact user <b><u>2119500001</u></b>.</li>
+                <li>Accept referral case <b><u>1212300008</u></b> and contact that user.</li>
+            </div>
+        </div>
+
+        <div class="todo-card border border-white rounded-xl text-white">
+            <h1 class="border border-white text-slate-900 text-2xl font-light bg-white/50 px-3 py-1 rounded-t-xl"><i class="fa-solid fa-calendar-days"></i> 17, October 2023 </h1>
+            <div class="points bg-slate-900 overflow-hidden rounded-b-xl text-lg px-3 py-2">
+                <li>Pending documentation for case <b><u>1212300005</u></b>, documentation ID <b><u>415300004</u></b>.</li>
+                <li>Look at the query <b><u>17215000001</u></b> to accept.</li>
+                <li>Contact user <b><u>2119500001</u></b>.</li>
+                <li>Accept referral case <b><u>1212300008</u></b> and contact that user.</li>
+            </div>
+        </div>
+
+        <div class="todo-card border border-white rounded-xl text-white">
+            <h1 class="border border-white text-slate-900 text-2xl font-light bg-white/50 px-3 py-1 rounded-t-xl"><i class="fa-solid fa-calendar-days"></i> 18, October 2023 </h1>
+            <div class="points bg-slate-900 overflow-hidden rounded-b-xl text-lg px-3 py-2">
+                <li>Pending documentation for case <b><u>1212300005</u></b>, documentation ID <b><u>415300004</u></b>.</li>
+                <li>Look at the query <b><u>17215000001</u></b> to accept.</li>
+                <li>Contact user <b><u>2119500001</u></b>.</li>
+                <li>Accept referral case <b><u>1212300008</u></b> and contact that user.</li>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

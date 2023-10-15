@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load custom_filters %}
 {% load static %}
 {% block title %} Home {% endblock %}
 {% block links %}
@@ -55,65 +56,33 @@
         </div>
         <div class="main grow flex items-center justify-evenly">
 
-            <div class="card-big flex flex-col h-[85%] border border-slate-900 w-1/4 rounded-xl overflow-hidden">
-                <div class="img-name bg-contain bg-no-repeat bg-slate-900 bg-top flex flex-col-reverse basis-1/2 bg-[url('{% static 'assets/lawyer_4.png' %}')] text-center">
-                    <div class="text bg-slate-900/75 py-2">
-                        <h2 class="text-2xl font-semibold text-white">Florence LawsonDean</h2>
-                        <div class="rating flex gap-2 justify-center">
-                            <i class="fa-solid fa-star text-xl text-yellow-500"></i>
-                            <i class="fa-solid fa-star text-xl text-yellow-500"></i>
-                            <i class="fa-solid fa-star text-xl text-yellow-500"></i>
-                            <i class="fa-solid fa-star text-xl text-yellow-500"></i>
-                            <i class="fa-solid fa-star-half-stroke text-xl text-yellow-500"></i>
-                            <p class="text-yellow-500 text-xl"> | <b>4.7</b></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="info grow flex bg-white items-start text-center px-3 py-2 leading-5 overflow-y-scroll basis-1/4">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit ducimus perferendis nostrum aperiam natus labore rerum consequuntur repudiandae excepturi, eius suscipit nobis porro cum harum, accusantium molestias? At, laboriosam! Animi maiores molestiae modi nesciunt dolore, sit eaque iste neque debitis ex et odit velit labore harum nulla reiciendis quo? Officia aliquam molestiae consequatur nihil recusandae harum delectus aut asperiores minima magni sapiente adipisci ipsum debitis porro distinctio, nemo, quaerat eius? Delectus eos labore aspernatur itaque ducimus accusamus consectetur nisi totam, rem odit commodi numquam eligendi ab nemo beatae sint soluta iure deleniti excepturi! Officiis numquam distinctio laboriosam sunt iusto. Non.
-                </div>
-                <button class="more-info py-2 bg-slate-900 text-white text-xl font-semibold">More Info +</button>
-            </div>
+            {% for lawyer in top_lawyers %}
+                <div class="card-big flex flex-col h-[85%] border border-slate-900 w-1/4 rounded-xl overflow-hidden">
+                    <div class="img-name bg-contain bg-no-repeat bg-slate-900 bg-top flex flex-col-reverse basis-1/2 bg-[url('{% static 'assets/lawyer_3.png' %}')] text-center">
+                        <div class="text bg-slate-900/75 py-2">
+                            <h2 class="text-2xl font-semibold text-white">{{ lawyer.name }}</h2>
+                            <div class="rating flex gap-2 justify-center">
+                                <i class="fa-solid fa-star text-xl text-yellow-500"></i>
+                                <i class="fa-solid fa-star text-xl text-yellow-500"></i>
+                                <i class="fa-solid fa-star text-xl text-yellow-500"></i>
+                                <i class="fa-solid fa-star text-xl text-yellow-500"></i>
 
-            <div class="card-big flex flex-col h-[85%] border border-slate-900 w-1/4 rounded-xl overflow-hidden">
-                <div class="img-name bg-contain bg-no-repeat bg-slate-900 bg-top flex flex-col-reverse basis-1/2 bg-[url('{% static 'assets/lawyer_2.png' %}')] text-center">
-                    <div class="text bg-slate-900/75 py-2">
-                        <h2 class="text-2xl font-semibold text-white">Eddie LoganDean</h2>
-                        <div class="rating flex gap-2 justify-center">
-                            <i class="fa-solid fa-star text-xl text-yellow-500"></i>
-                            <i class="fa-solid fa-star text-xl text-yellow-500"></i>
-                            <i class="fa-solid fa-star text-xl text-yellow-500"></i>
-                            <i class="fa-solid fa-star text-xl text-yellow-500"></i>
-                            <i class="fa-solid fa-star text-xl text-yellow-500"></i>
-                            <p class="text-yellow-500 text-xl"> | <b>5.0</b></p>
+                                <i class="fa-solid fa-star-half-stroke text-xl text-yellow-500"></i>
+                                <p class="text-yellow-500 text-xl"> | <b>{{ lawyer.rating }}</b></p>
+                            </div>
                         </div>
                     </div>
+                    <div class="info grow flex bg-white items-start text-center px-3 py-2 leading-5 overflow-y-scroll basis-1/4">
+                        {{ lawyer.address }}<br>
+                        {{ lawyer.phone }}<br>
+                        {{ lawyer.bar_id }}
+                    </div>
+                    <button class="more-info py-2 bg-slate-900 text-white text-xl font-semibold">More Info +</button>
                 </div>
-                <div class="info grow flex bg-white items-start text-center px-3 py-2 leading-5 overflow-y-scroll basis-1/4">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit ducimus perferendis nostrum aperiam natus labore rerum consequuntur repudiandae excepturi, eius suscipit nobis porro cum harum, accusantium molestias? At, laboriosam! Animi maiores molestiae modi nesciunt dolore, sit eaque iste neque debitis ex et odit velit labore harum nulla reiciendis quo? Officia aliquam molestiae consequatur nihil recusandae harum delectus aut asperiores minima magni sapiente adipisci ipsum debitis porro distinctio, nemo, quaerat eius? Delectus eos labore aspernatur itaque ducimus accusamus consectetur nisi totam, rem odit commodi numquam eligendi ab nemo beatae sint soluta iure deleniti excepturi! Officiis numquam distinctio laboriosam sunt iusto. Non.
-                </div>
-                <button class="more-info py-2 bg-slate-900 text-white text-xl font-semibold">More Info +</button>
-            </div>
+            {% endfor %}
 
-            <div class="card-big flex flex-col h-[85%] border border-slate-900 w-1/4 rounded-xl overflow-hidden">
-                <div class="img-name bg-contain bg-no-repeat bg-slate-900 bg-top flex flex-col-reverse basis-1/2 bg-[url('{% static 'assets/lawyer_3.png' %}')] text-center">
-                    <div class="text bg-slate-900/75 py-2">
-                        <h2 class="text-2xl font-semibold text-white">Isabel MackDean</h2>
-                        <div class="rating flex gap-2 justify-center">
-                            <i class="fa-solid fa-star text-xl text-yellow-500"></i>
-                            <i class="fa-solid fa-star text-xl text-yellow-500"></i>
-                            <i class="fa-solid fa-star text-xl text-yellow-500"></i>
-                            <i class="fa-solid fa-star text-xl text-yellow-500"></i>
-                            <i class="fa-solid fa-star-half-stroke text-xl text-yellow-500"></i>
-                            <p class="text-yellow-500 text-xl"> | <b>4.85</b></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="info grow flex bg-white items-start text-center px-3 py-2 leading-5 overflow-y-scroll basis-1/4">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit ducimus perferendis nostrum aperiam natus labore rerum consequuntur repudiandae excepturi, eius suscipit nobis porro cum harum, accusantium molestias? At, laboriosam! Animi maiores molestiae modi nesciunt dolore, sit eaque iste neque debitis ex et odit velit labore harum nulla reiciendis quo? Officia aliquam molestiae consequatur nihil recusandae harum delectus aut asperiores minima magni sapiente adipisci ipsum debitis porro distinctio, nemo, quaerat eius? Delectus eos labore aspernatur itaque ducimus accusamus consectetur nisi totam, rem odit commodi numquam eligendi ab nemo beatae sint soluta iure deleniti excepturi! Officiis numquam distinctio laboriosam sunt iusto. Non.
-                </div>
-                <button class="more-info py-2 bg-slate-900 text-white text-xl font-semibold">More Info +</button>
-            </div>
+
+
 
         </div>
     </div>
